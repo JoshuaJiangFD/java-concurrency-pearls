@@ -1,0 +1,22 @@
+5.5 Synchronizers
+a) Defintion
+    A synchronizer is any object that coordinates the control flow of threads based on its state.
+
+b) Shared properties
+    i) encapsulate state that determines whether threads arriving at the synchronizer should be allowed to pass/forced to wait;
+    ii) provide mthods to manipulate the state, and provide methods to wait efficiently for the synchronizer to enter the desired state;
+
+5.5.1 Latches
+CountDownLatch
+
+5.5.2 FutureTask
+    get(): blocking method to retrieve the result synchronously;
+
+5.5.3 Semaphores
+Counting semaphores are used to control the number of activties that can access a certain resource or perform a given action simultaneously.
+typical usage:
+    resources pool implementation;
+
+5.5.4 Barriers
+
+
