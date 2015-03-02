@@ -107,9 +107,11 @@ public class NonStandardCancellation {
                 @Override
                 public boolean cancel(boolean mayInterruptIfRunning) {
                     try {
-                        SocketUsingTask.this.cancel();/*cancel() defined in CancellableTask to close the underlying interrupt non-responsible socket.*/
+                        /*cancel() defined in CancellableTask to close the underlying interrupt non-responsible socket.*/
+                        SocketUsingTask.this.cancel();
                     } finally {
-                        return super.cancel(mayInterruptIfRunning);/*cancel() defined in Future interface to cancel the working thread.*/
+                        /*cancel() defined in Future interface to cancel the working thread.*/
+                        return super.cancel(mayInterruptIfRunning);
                     }
                 }
             };
@@ -126,6 +128,10 @@ public class NonStandardCancellation {
         }
     }
 
+    /**
+     * A customized ThreadPoolExecutor which is capable of returning cancellable task for an extended case:
+     * when the callable could be blocked in calls which are non-responsible to interruption.
+     */
     class CancellingExecutor extends ThreadPoolExecutor {
 
         public CancellingExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
