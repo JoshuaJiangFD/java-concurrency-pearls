@@ -39,14 +39,13 @@ public class MonitorVehicleTracker {
         MutablePoint loc = locations.get(id);
         return loc == null ? null : new MutablePoint(loc);
     }
-
     public synchronized void setLocation(String id, int x, int y) {
         MutablePoint loc = locations.get(id);
         if (loc == null) {
             throw new IllegalArgumentException("No such ID: " + id);
-            loc.x = x;
-            loc.y = y;
         }
+        loc.x = x;
+        loc.y = y;
     }
 
     /**

@@ -6,7 +6,7 @@ import net.jcip.annotations.NotThreadSafe;
  * Created by krystal on 2/8/15.
  */
 @NotThreadSafe
-public class MutablePoint {
+public class MutablePoint ex{
 
     public int x;
     public int y;
